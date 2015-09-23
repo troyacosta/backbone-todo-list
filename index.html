@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TODO LIST</title>
+    <link rel="stylesheet" type="text/css" href="./styles/main.sass.css">
+</head>
+
+<body>
+    <form id="form">
+        <input id="input" type="text" placeholder="Put shit here, yo.">
+        <button id="addButton">ADD</button>
+    </form>
+    <ul id="compiledList"></ul>
+    <script type="text/javascript" src="./scripts/bundle.js"></script>
+    <script type="text/template" id="list-row">
+        <li>
+            <%= info %>
+        </li>
+    </script>
+</body>
+
+</html>
