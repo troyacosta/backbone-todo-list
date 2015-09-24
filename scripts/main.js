@@ -21,9 +21,11 @@ $(document).ready(function() {
 	});
 
 	listItems.on('add', function(newItem) {
+		newItem.save();
 		$input = $input.val('');
 		var newHTML = listTemplate(newItem.toJSON());
 		$compiledList.append(newHTML);
 	});
+	listItems.fetch();
 
 });
