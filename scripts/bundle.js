@@ -12665,7 +12665,8 @@ return jQuery;
 var Backbone = require('backbone');
 var TodoListModel = require('../models/TodoListModel');
 module.exports = Backbone.Collection.extend({
-	model: TodoListModel
+	model: TodoListModel,
+	url: 'http://tiyfe.herokuapp.com/collections/troy-backbone-todo'
 });
 
 },{"../models/TodoListModel":6,"backbone":1}],5:[function(require,module,exports){
@@ -12692,10 +12693,12 @@ $(document).ready(function () {
 	});
 
 	listItems.on('add', function (newItem) {
+		newItem.save();
 		$input = $input.val('');
 		var newHTML = listTemplate(newItem.toJSON());
 		$compiledList.append(newHTML);
 	});
+	listItems.fetch();
 });
 
 },{"./collections/TodoListCollection":4,"./models/TodoListModel.js":6,"backbone/node_modules/underscore":2,"jquery":3}],6:[function(require,module,exports){
@@ -12705,7 +12708,9 @@ var Backbone = require('backbone');
 module.exports = Backbone.Model.extend({
 	defaults: {
 		info: 'list item'
-	}
+	},
+	urlRoot: 'http://tiyfe.herokuapp.com/collections/troy-backbone-todo',
+	idAttribute: '_id'
 });
 
 },{"backbone":1}]},{},[5])
